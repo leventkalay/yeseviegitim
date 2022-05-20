@@ -1,0 +1,26 @@
+{
+  "egitimyeseviApp": {
+    "kurum": {
+      "home": {
+        "title": "Kurums",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Kurum",
+        "createOrEditLabel": "Kurum",
+        "notFound": "No Kurums found"
+      },
+      "created": "A new Kurum is created with identifier {{ param }}",
+      "updated": "A Kurum is updated with identifier {{ param }}",
+      "deleted": "A Kurum is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Kurum {{ id }}?"
+      },
+      "detail": {
+        "title": "Kurum"
+      },
+      "id": "ID",
+      "adi": "Adi",
+      "aciklama": "Aciklama",
+      "aktif": "Aktif"
+    }
+  }
+}

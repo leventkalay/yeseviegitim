@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd">
+    <!--
+        Added the constraints for entity Egitim.
+    -->
+    <changeSet id="20220509181148-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="kurum_id"
+                                 baseTableName="egitim"
+                                 constraintName="fk_egitim__kurum_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="kurum"/>
+
+        <addForeignKeyConstraint baseColumnNames="egitim_turu_id"
+                                 baseTableName="egitim"
+                                 constraintName="fk_egitim__egitim_turu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="egitim_turu"/>
+
+        <addForeignKeyConstraint baseColumnNames="egitmen_id"
+                                 baseTableName="egitim"
+                                 constraintName="fk_egitim__egitmen_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="egitmen"/>
+
+        <addForeignKeyConstraint baseColumnNames="application_user_id"
+                                 baseTableName="egitim"
+                                 constraintName="fk_egitim__application_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="application_user"/>
+    </changeSet>
+</databaseChangeLog>

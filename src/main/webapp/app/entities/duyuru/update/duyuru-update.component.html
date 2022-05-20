@@ -1,0 +1,171 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-duyuru-heading" data-cy="DuyuruCreateUpdateHeading" jhiTranslate="egitimyeseviApp.duyuru.home.createOrEditLabel">
+        Create or edit a Duyuru
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="egitimyeseviApp.duyuru.duyuruBaslik" for="field_duyuruBaslik"
+            >Duyuru Baslik</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="duyuruBaslik"
+            id="field_duyuruBaslik"
+            data-cy="duyuruBaslik"
+            formControlName="duyuruBaslik"
+          />
+          <div
+            *ngIf="editForm.get('duyuruBaslik')!.invalid && (editForm.get('duyuruBaslik')!.dirty || editForm.get('duyuruBaslik')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('duyuruBaslik')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="egitimyeseviApp.duyuru.duyuruIcerik" for="field_duyuruIcerik"
+            >Duyuru Icerik</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="duyuruIcerik"
+            id="field_duyuruIcerik"
+            data-cy="duyuruIcerik"
+            formControlName="duyuruIcerik"
+          />
+          <div
+            *ngIf="editForm.get('duyuruIcerik')!.invalid && (editForm.get('duyuruIcerik')!.dirty || editForm.get('duyuruIcerik')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('duyuruIcerik')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="egitimyeseviApp.duyuru.duyuruBaslamaTarihi" for="field_duyuruBaslamaTarihi"
+            >Duyuru Baslama Tarihi</label
+          >
+          <div class="input-group">
+            <input
+              id="field_duyuruBaslamaTarihi"
+              data-cy="duyuruBaslamaTarihi"
+              type="text"
+              class="form-control"
+              name="duyuruBaslamaTarihi"
+              ngbDatepicker
+              #duyuruBaslamaTarihiDp="ngbDatepicker"
+              formControlName="duyuruBaslamaTarihi"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="duyuruBaslamaTarihiDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+          <div
+            *ngIf="
+              editForm.get('duyuruBaslamaTarihi')!.invalid &&
+              (editForm.get('duyuruBaslamaTarihi')!.dirty || editForm.get('duyuruBaslamaTarihi')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('duyuruBaslamaTarihi')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="egitimyeseviApp.duyuru.duyuruBitisTarihi" for="field_duyuruBitisTarihi"
+            >Duyuru Bitis Tarihi</label
+          >
+          <div class="input-group">
+            <input
+              id="field_duyuruBitisTarihi"
+              data-cy="duyuruBitisTarihi"
+              type="text"
+              class="form-control"
+              name="duyuruBitisTarihi"
+              ngbDatepicker
+              #duyuruBitisTarihiDp="ngbDatepicker"
+              formControlName="duyuruBitisTarihi"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="duyuruBitisTarihiDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+          <div
+            *ngIf="
+              editForm.get('duyuruBitisTarihi')!.invalid &&
+              (editForm.get('duyuruBitisTarihi')!.dirty || editForm.get('duyuruBitisTarihi')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('duyuruBitisTarihi')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="egitimyeseviApp.duyuru.egitim" for="field_egitim">Egitim</label>
+          <select class="form-control" id="field_egitim" data-cy="egitim" name="egitim" formControlName="egitim">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="egitimOption.id === editForm.get('egitim')!.value?.id ? editForm.get('egitim')!.value : egitimOption"
+              *ngFor="let egitimOption of egitimsSharedCollection; trackBy: trackEgitimById"
+            >
+              {{ egitimOption.egitimBaslik }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

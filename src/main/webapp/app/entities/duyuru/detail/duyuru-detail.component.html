@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="duyuru">
+      <h2 data-cy="duyuruDetailsHeading"><span jhiTranslate="egitimyeseviApp.duyuru.detail.title">Duyuru</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ duyuru.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.duyuru.duyuruBaslik">Duyuru Baslik</span></dt>
+        <dd>
+          <span>{{ duyuru.duyuruBaslik }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.duyuru.duyuruIcerik">Duyuru Icerik</span></dt>
+        <dd>
+          <span>{{ duyuru.duyuruIcerik }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.duyuru.duyuruBaslamaTarihi">Duyuru Baslama Tarihi</span></dt>
+        <dd>
+          <span>{{ duyuru.duyuruBaslamaTarihi | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.duyuru.duyuruBitisTarihi">Duyuru Bitis Tarihi</span></dt>
+        <dd>
+          <span>{{ duyuru.duyuruBitisTarihi | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.duyuru.egitim">Egitim</span></dt>
+        <dd>
+          <div *ngIf="duyuru.egitim">
+            <a [routerLink]="['/egitim', duyuru.egitim?.id, 'view']">{{ duyuru.egitim?.egitimBaslik }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/duyuru', duyuru.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

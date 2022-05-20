@@ -1,0 +1,108 @@
+<div>
+  <h2 id="page-heading" data-cy="DuyuruHeading">
+    <span jhiTranslate="egitimyeseviApp.duyuru.home.title">Duyurus</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="egitimyeseviApp.duyuru.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-duyuru"
+        [routerLink]="['/duyuru/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="egitimyeseviApp.duyuru.home.createLabel"> Create a new Duyuru </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="duyurus?.length === 0">
+    <span jhiTranslate="egitimyeseviApp.duyuru.home.notFound">No duyurus found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="duyurus && duyurus.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="duyuruBaslik">
+            <span jhiTranslate="egitimyeseviApp.duyuru.duyuruBaslik">Duyuru Baslik</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="duyuruIcerik">
+            <span jhiTranslate="egitimyeseviApp.duyuru.duyuruIcerik">Duyuru Icerik</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="duyuruBaslamaTarihi">
+            <span jhiTranslate="egitimyeseviApp.duyuru.duyuruBaslamaTarihi">Duyuru Baslama Tarihi</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="duyuruBitisTarihi">
+            <span jhiTranslate="egitimyeseviApp.duyuru.duyuruBitisTarihi">Duyuru Bitis Tarihi</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="egitim.egitimBaslik">
+            <span jhiTranslate="egitimyeseviApp.duyuru.egitim">Egitim</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let duyuru of duyurus; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/duyuru', duyuru.id, 'view']">{{ duyuru.id }}</a>
+          </td>
+          <td>{{ duyuru.duyuruBaslik }}</td>
+          <td>{{ duyuru.duyuruIcerik }}</td>
+          <td>{{ duyuru.duyuruBaslamaTarihi | formatMediumDate }}</td>
+          <td>{{ duyuru.duyuruBitisTarihi | formatMediumDate }}</td>
+          <td>
+            <div *ngIf="duyuru.egitim">
+              <a [routerLink]="['/egitim', duyuru.egitim?.id, 'view']">{{ duyuru.egitim?.egitimBaslik }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/duyuru', duyuru.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/duyuru', duyuru.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(duyuru)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="duyurus && duyurus.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

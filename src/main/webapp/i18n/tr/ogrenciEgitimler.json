@@ -1,0 +1,25 @@
+{
+  "egitimyeseviApp": {
+    "ogrenciEgitimler": {
+      "home": {
+        "title": "Ogrenci Egitimlers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ogrenci Egitimler",
+        "createOrEditLabel": "Ogrenci Egitim",
+        "notFound": "No Ogrenci Egitimlers found"
+      },
+      "created": "A new Ogrenci Egitimler is created with identifier {{ param }}",
+      "updated": "A Ogrenci Egitimler is updated with identifier {{ param }}",
+      "deleted": "A Ogrenci Egitimler is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ogrenci Egitimler {{ id }}?"
+      },
+      "detail": {
+        "title": "Ogrenci Egitimler"
+      },
+      "id": "ID",
+      "egitim": "Egitim",
+      "kullanici": "Kullanici"
+    }
+  }
+}

@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="egitim">
+      <h2 data-cy="egitimDetailsHeading"><span jhiTranslate="egitimyeseviApp.egitim.detail.title">Egitim</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.id">Id</span></dt>
+        <dd>
+          <span>{{ egitim.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.egitimBaslik">Egitim Baslik</span></dt>
+        <dd>
+          <span>{{ egitim.egitimBaslik }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.egitimAltBaslik">Egitim Alt Baslik</span></dt>
+        <dd>
+          <span>{{ egitim.egitimAltBaslik }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.egitimBaslamaTarihi">Egitim Baslama Tarihi</span></dt>
+        <dd>
+          <span>{{ egitim.egitimBaslamaTarihi | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.egitimBitisTarihi">Egitim Bitis Tarihi</span></dt>
+        <dd>
+          <span>{{ egitim.egitimBitisTarihi | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.dersSayisi">Ders Sayisi</span></dt>
+        <dd>
+          <span>{{ egitim.dersSayisi }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.egitimSuresi">Egitim Suresi</span></dt>
+        <dd>
+          <span>{{ egitim.egitimSuresi }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.egitimYeri">Egitim Yeri</span></dt>
+        <dd>
+          <span>{{ egitim.egitimYeri }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.egitimPuani">Egitim Puani</span></dt>
+        <dd>
+          <span>{{ egitim.egitimPuani }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.aktif">Aktif</span></dt>
+        <dd>
+          <span>{{ egitim.aktif }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.kurum">Kurum</span></dt>
+        <dd>
+          <div *ngIf="egitim.kurum">
+            <a [routerLink]="['/kurum', egitim.kurum?.id, 'view']">{{ egitim.kurum?.adi }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.egitimTuru">Egitim Turu</span></dt>
+        <dd>
+          <div *ngIf="egitim.egitimTuru">
+            <a [routerLink]="['/egitim-turu', egitim.egitimTuru?.id, 'view']">{{ egitim.egitimTuru?.adi }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.egitmen">Egitmen</span></dt>
+        <dd>
+          <div *ngIf="egitim.egitmen">
+            <a [routerLink]="['/egitmen', egitim.egitmen?.id, 'view']">{{ egitim.egitmen?.adiSoyadi }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.egitim.applicationUser">Application User</span></dt>
+        <dd>
+          <div *ngIf="egitim.applicationUser">
+            <a [routerLink]="['/application-user', egitim.applicationUser?.id, 'view']">{{ egitim.applicationUser?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/egitim', egitim.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

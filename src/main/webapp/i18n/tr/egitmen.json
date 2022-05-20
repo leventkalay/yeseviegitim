@@ -1,0 +1,27 @@
+{
+  "egitimyeseviApp": {
+    "egitmen": {
+      "home": {
+        "title": "Egitmen",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Egitmen",
+        "createOrEditLabel": "Egitmen",
+        "notFound": "No Egitmen found"
+      },
+      "created": "A new Egitmen is created with identifier {{ param }}",
+      "updated": "A Egitmen is updated with identifier {{ param }}",
+      "deleted": "A Egitmen is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Egitmen {{ id }}?"
+      },
+      "detail": {
+        "title": "Egitmen"
+      },
+      "id": "Id",
+      "adiSoyadi": "Adi Soyadi",
+      "unvani": "Unvani",
+      "puani": "Puani",
+      "aktif": "Aktif"
+    }
+  }
+}

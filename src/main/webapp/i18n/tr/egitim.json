@@ -1,0 +1,37 @@
+{
+  "egitimyeseviApp": {
+    "egitim": {
+      "home": {
+        "title": "Egitims",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Egitim",
+        "createOrEditLabel": " Egitim",
+        "notFound": "No Egitims found"
+      },
+      "created": "A new Egitim is created with identifier {{ param }}",
+      "updated": "A Egitim is updated with identifier {{ param }}",
+      "deleted": "A Egitim is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Egitim {{ id }}?"
+      },
+      "detail": {
+        "title": "Egitim"
+      },
+      "id": "Id",
+      "egitimBaslik": "Egitim Baslik",
+      "egitimAltBaslik": "Egitim Alt Baslik",
+      "egitimBaslamaTarihi": "Egitim Baslama Tarihi",
+      "egitimBitisTarihi": "Egitim Bitis Tarihi",
+      "dersSayisi": "Ders Sayisi",
+      "egitimSuresi": "Egitim Suresi",
+      "egitimYeri": "Egitim Yeri",
+      "egitimPuani": "Egitim Puani",
+      "aktif": "Aktif",
+      "ders": "Ders",
+      "kurum": "Kurum",
+      "egitimTuru": "Egitim Turu",
+      "egitmen": "Egitmen",
+      "applicationUser": "Application User"
+    }
+  }
+}

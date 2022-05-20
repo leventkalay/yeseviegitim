@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ders">
+      <h2 data-cy="dersDetailsHeading"><span jhiTranslate="egitimyeseviApp.ders.detail.title">Ders</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ders.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.ders.adi">Adi</span></dt>
+        <dd>
+          <span>{{ ders.adi }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.ders.aciklama">Aciklama</span></dt>
+        <dd>
+          <span>{{ ders.aciklama }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.ders.dersLinki">Ders Linki</span></dt>
+        <dd>
+          <span>{{ ders.dersLinki }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.ders.dersVideosu">Ders Videosu</span></dt>
+        <dd>
+          <div *ngIf="ders.dersVideosu">
+            <a (click)="openFile(ders.dersVideosu, ders.dersVideosuContentType)" jhiTranslate="entity.action.open">open</a>
+            {{ ders.dersVideosuContentType }}, {{ byteSize(ders.dersVideosu) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.ders.egitim">Egitim</span></dt>
+        <dd>
+          <div *ngIf="ders.egitim">
+            <a [routerLink]="['/egitim', ders.egitim?.id, 'view']">{{ ders.egitim?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ders', ders.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

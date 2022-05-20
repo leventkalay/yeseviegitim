@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="kurum">
+      <h2 data-cy="kurumDetailsHeading"><span jhiTranslate="egitimyeseviApp.kurum.detail.title">Kurum</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ kurum.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.kurum.adi">Adi</span></dt>
+        <dd>
+          <span>{{ kurum.adi }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.kurum.aciklama">Aciklama</span></dt>
+        <dd>
+          <span>{{ kurum.aciklama }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.kurum.aktif">Aktif</span></dt>
+        <dd>
+          <span>{{ kurum.aktif }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/kurum', kurum.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

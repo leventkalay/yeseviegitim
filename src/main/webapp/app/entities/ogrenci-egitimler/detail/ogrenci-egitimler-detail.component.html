@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ogrenciEgitimler">
+      <h2 data-cy="ogrenciEgitimlerDetailsHeading">
+        <span jhiTranslate="egitimyeseviApp.ogrenciEgitimler.detail.title">Ogrenci Egitimler</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ogrenciEgitimler.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.ogrenciEgitimler.egitim">Egitim</span></dt>
+        <dd>
+          <div *ngIf="ogrenciEgitimler.egitim">
+            <a [routerLink]="['/egitim', ogrenciEgitimler.egitim?.id, 'view']">{{ ogrenciEgitimler.egitim?.egitimBaslik }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="egitimyeseviApp.ogrenciEgitimler.kullanici">Kullanici</span></dt>
+        <dd>
+          <div *ngIf="ogrenciEgitimler.kullanici">
+            <a [routerLink]="['/application-user', ogrenciEgitimler.kullanici?.id, 'view']">{{ ogrenciEgitimler.kullanici?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ogrenci-egitimler', ogrenciEgitimler.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

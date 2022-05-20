@@ -1,0 +1,28 @@
+{
+  "egitimyeseviApp": {
+    "duyuru": {
+      "home": {
+        "title": "Duyurus",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Duyuru",
+        "createOrEditLabel": "Duyuru",
+        "notFound": "No Duyurus found"
+      },
+      "created": "A new Duyuru is created with identifier {{ param }}",
+      "updated": "A Duyuru is updated with identifier {{ param }}",
+      "deleted": "A Duyuru is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Duyuru {{ id }}?"
+      },
+      "detail": {
+        "title": "Duyuru"
+      },
+      "id": "ID",
+      "duyuruBaslik": "Duyuru Baslik",
+      "duyuruIcerik": "Duyuru Icerik",
+      "duyuruBaslamaTarihi": "Duyuru Baslama Tarihi",
+      "duyuruBitisTarihi": "Duyuru Bitis Tarihi",
+      "egitim": "Egitim"
+    }
+  }
+}

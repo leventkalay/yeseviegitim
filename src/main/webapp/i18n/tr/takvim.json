@@ -1,0 +1,25 @@
+{
+  "egitimyeseviApp": {
+    "takvim": {
+      "home": {
+        "title": "Takvims",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Takvim",
+        "createOrEditLabel": "Takvim",
+        "notFound": "No Takvims found"
+      },
+      "created": "A new Takvim is created with identifier {{ param }}",
+      "updated": "A Takvim is updated with identifier {{ param }}",
+      "deleted": "A Takvim is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Takvim {{ id }}?"
+      },
+      "detail": {
+        "title": "Takvim"
+      },
+      "id": "ID",
+      "adi": "Adi",
+      "egitim": "Egitim"
+    }
+  }
+}
